@@ -316,6 +316,17 @@ export default class Avatar extends Base {
     }
     let attr = this._attr = this._attr || Attr.create(this)
     this.attr = attr.calc()
+    if (this.game === 'gs') {
+      let artisMain = this.artis?.artis['4']?.main || {}
+      for (let key of ['pyro', 'hydro', 'electro', 'cryo']) 
+        if (artisMain.key === key)
+          this.attr[key] = artisMain.value
+        else      
+          this.attr[key] = 0
+      if (artisMain.key === 'anemo')
+        for (let key of ['pyro', 'hydro', 'electro', 'cryo'])
+          this.attr[key] = -artisMain.value
+    }
     this.base = attr.getBase()
   }
 

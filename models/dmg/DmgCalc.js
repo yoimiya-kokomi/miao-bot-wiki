@@ -137,7 +137,13 @@ let DmgCalc = {
     let eleNum = 1
     let eleBase = 1
     if (game === 'gs') {
-      eleNum = isEle ? DmgMastery.getBasePct(ele, attr.element) : 1
+      let reactionElement = attr.element
+      const eleMap = { pyro: '火', hydro: '水', electro: '雷', cryo: '冰' }
+      Object.keys(eleMap).forEach(key => {
+        if (new RegExp(key).test(talent)) reactionElement = eleMap[key];        
+      })
+
+      eleNum = isEle ? DmgMastery.getBasePct(ele, reactionElement) : 1
       eleBase = isEle ? 1 + attr[ele] / 100 + DmgMastery.getMultiple(ele, calc(attr.mastery)) : 1
     }
 
@@ -273,6 +279,15 @@ let DmgCalc = {
       if (game === 'sr') {
         // 星铁meta数据天赋为百分比前数字
         pctNum = pctNum * 100
+      }
+      if (game === 'gs' && /color/.test(talent)) {
+        let dmgRet = { max: 1e8, avg: 1e8 }
+        for (let key of ['pyro', 'hydro', 'electro', 'cryo']) {
+          let newTalent = talent.replace('color', key)
+          let dmgTmp = DmgCalc.calcRet({ pctNum, talent: newTalent, ele, basicNum, mode, dynamicData }, data)
+          if (dmgTmp.avg < dmgRet.avg) dmgRet = dmgTmp
+        }
+        return dmgRet
       }
       return DmgCalc.calcRet({ pctNum, talent, ele, basicNum, mode, dynamicData }, data)
     }

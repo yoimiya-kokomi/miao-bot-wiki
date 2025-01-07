@@ -1,14 +1,14 @@
 const attr = function (key, val, elem = '', unit = '%') {
   const keyMap = {
-    hp: '生命值',
+    hpPct: '生命值',
     hpPlus: '生命值',
-    atk: '攻击力',
-    def: '防御力',
+    atkPct: '攻击力',
+    defPct: '防御力',
     cpct: '暴击率',
     dmg: '元素伤害',
     phy: '物理伤害',
     shield: '护盾强效',
-    heal: '治疗',
+    heal: '治疗加成',
     mastery: '元素精通'
   }
   let ret = {

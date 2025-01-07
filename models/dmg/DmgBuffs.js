@@ -70,16 +70,40 @@ let DmgBuffs = {
   // 圣遗物Buff
   getArtisBuffs (artis = {}, game = 'gs') {
     let retBuffs = []
+    const elemMap = { '雷': 'electro', '火': 'pyro', '冰': 'cryo', '水': 'hydro' }
     ArtifactSet.eachSet(artis, (sets, num) => {
       let buffs = ArtifactSet.getArtisSetBuff(sets.name, num, game)
       if (lodash.isPlainObject(buffs)) {
         buffs = [buffs]
       }
       lodash.forEach(buffs, (buff) => {
-        if (buff && !buff.isStatic) {
+        if (!buff) return
+        if (!buff.isStatic) {
           retBuffs.push({
             ...buff,
             title: `${sets.name}${num}：` + buff.title
+          })
+        }
+        else if (buff.elem in elemMap) {
+          let elebuff = lodash.cloneDeep(buff)
+          elebuff.data[`${elemMap[buff.elem]}Dmg`] = buff.data.dmg
+          delete elebuff.isStatic
+          delete elebuff.data.dmg
+          delete elebuff.elem
+          retBuffs.push({
+            ...elebuff,
+            title: `${sets.name}${num}：${buff.elem}` + elebuff.title
+          })
+        }
+        else if (game === 'gs' && buff.elem === '风') {
+          let elebuff = lodash.cloneDeep(buff)
+          elebuff.data.pyroDmg = elebuff.data.hydroDmg = elebuff.data.cryoDmg = elebuff.data.electroDmg = -buff.data.dmg
+          delete elebuff.isStatic
+          delete elebuff.data.dmg
+          delete elebuff.elem
+          retBuffs.push({
+            ...elebuff,
+            title: `${sets.name}${num}：${buff.elem}` + elebuff.title
           })
         }
       })

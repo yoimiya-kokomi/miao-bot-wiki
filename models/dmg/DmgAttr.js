@@ -56,6 +56,23 @@ let DmgAttr = {
       }
     })
 
+    if (game === 'gs') 
+      lodash.forEach('pyro,hydro,electro,cryo'.split(','), (key) => {
+        ret[key] = ret[key] || {
+          pct: 0, // 倍率加成
+          multi: 0, // 独立倍率乘区加成，宵宫E等
+  
+          plus: 0, // 伤害值提高
+          dmg: attr[key] || 0, // 伤害提高
+          enemydmg: 0, // 承受伤害提高
+          cpct: 0, // 暴击提高
+          cdmg: 0, // 爆伤提高
+  
+          def: 0, // 防御降低
+          ignore: 0 // 无视防御
+        }
+    })
+
     ret.enemy = ret.enemy || {
       def: 0, // 降低防御
       ignore: 0, // 无视防御
@@ -198,7 +215,7 @@ let DmgAttr = {
         title = title.replace(`[${key}]`, Format.comma(val, 1))
 
         // 技能提高
-        let tRet = /^(a|a2|a3|e|q|t|dot|break)(Def|Ignore|Dmg|Enemydmg|Plus|Pct|Cpct|Cdmg|Multi)$/.exec(key)
+        let tRet = /^(a|a2|a3|e|q|t|dot|break|pyro|electro|cryo|hydro)(Def|Ignore|Dmg|Enemydmg|Plus|Pct|Cpct|Cdmg|Multi)$/.exec(key)
         if (tRet) {
           attr[tRet[1]][tRet[2].toLowerCase()] += val * 1 || 0
           return
