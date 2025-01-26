@@ -209,7 +209,10 @@ const MysAvatar = {
         if (!avatar) {
           return false
         }
-        if (avatar.isMaxTalent || failCount > 5) {
+        // TODO: 不能直接用 avatar.isMaxTalent 判断
+        // 此处的 avatar.promote 还是更新前的
+        // e.g. 有人之前 80 级未突破，天赋8 8 8，但是之后 80 突破，天赋9 9 9
+        if (failCount > 5) {
           avatar.setTalent(false, 'original', true)
           return false
         }
