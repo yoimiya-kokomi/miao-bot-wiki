@@ -12,7 +12,7 @@ export const usefulAttr = {
   云堇: { hp: 0, atk: 75, def: 100, cpct: 80, cdmg: 80, mastery: 0, dmg: 80, phy: 0, recharge: 80, heal: 0 },
   荒泷一斗: { hp: 0, atk: 50, def: 100, cpct: 100, cdmg: 100, mastery: 0, dmg: 100, phy: 0, recharge: 30, heal: 0 },
   五郎: { hp: 0, atk: 75, def: 100, cpct: 50, cdmg: 50, mastery: 0, dmg: 100, phy: 0, recharge: 75, heal: 0 },
-  班尼特: { hp: 100, atk: 50, def: 0, cpct: 50, cdmg: 50, mastery: 0, dmg: 80, phy: 0, recharge: 75, heal: 100 },
+  班尼特: { hp: 100, atk: 50, def: 0, cpct: 50, cdmg: 50, mastery: 0, dmg: 80, phy: 0, recharge: 100, heal: 100 },
   枫原万叶: { hp: 0, atk: 50, def: 0, cpct: 50, cdmg: 50, mastery: 100, dmg: 80, phy: 0, recharge: 55, heal: 0 },
   行秋: { hp: 0, atk: 75, def: 0, cpct: 100, cdmg: 100, mastery: 0, dmg: 100, phy: 0, recharge: 75, heal: 0 },
   钟离: { hp: 100, atk: 30, def: 0, cpct: 40, cdmg: 40, mastery: 0, dmg: 80, phy: 0, recharge: 55, heal: 0 },
