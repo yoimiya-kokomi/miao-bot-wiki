@@ -15,10 +15,10 @@ export default {
     let proxy = this.getCfg('proxyAgent')
     if (proxy) {
       if (HttpsProxyAgent === '') {
-        HttpsProxyAgent = await import('https-proxy-agent').catch((err) => {
+        const { HttpsProxyAgent: ProxyAgent } = await import('https-proxy-agent').catch((err) => {
           logger.error(err)
         })
-        HttpsProxyAgent = HttpsProxyAgent ? HttpsProxyAgent.default : undefined
+        HttpsProxyAgent = ProxyAgent
       }
       if (HttpsProxyAgent) {
         params.agent = new HttpsProxyAgent(proxy)

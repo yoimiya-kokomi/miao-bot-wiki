@@ -11,6 +11,18 @@ export default {
     let params = {
       headers: { 'User-Agent': this.getCfg('userAgent') }
     }
+    let proxy = this.getCfg('proxyAgent')
+    if (proxy) {
+      if (HttpsProxyAgent === '') {
+        const { HttpsProxyAgent: ProxyAgent } = await import('https-proxy-agent').catch((err) => {
+          logger.error(err)
+        })
+        HttpsProxyAgent = ProxyAgent
+      }
+      if (HttpsProxyAgent) {
+        params.agent = new HttpsProxyAgent(proxy)
+      }
+    }
     return { api, params }
   },
 

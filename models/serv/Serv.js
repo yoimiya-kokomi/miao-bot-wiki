@@ -101,6 +101,7 @@ const Serv = {
         e.reply(`UID:${uid}更新面板失败，更新服务：${serv.name}`)
       }
       console.log(err)
+      throw err
       return false
     }
 
