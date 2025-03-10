@@ -15,8 +15,8 @@
 请使用 git 进行安装，以方便后续升级。在 Yunzai-Bot 根目录夹打开终端，运行下述指令之一
 
 ```
-// 使用gitee
-git clone --depth=1 https://gitee.com/yoimiya-kokomi/miao-plugin.git ./plugins/miao-plugin/
+// 使用github镜像
+git clone --depth=1 https://ghfast.top/https://github.com/yoimiya-kokomi/miao-plugin.git ./plugins/miao-plugin/
 pnpm install -P
 
 // 使用github
@@ -70,10 +70,9 @@ git -C plugins/miao-plugin remote set-url origin https://ghfast.top/https://gith
 > 查询功能经Enka官方授权([issue#63](https://github.com/yoimiya-kokomi/miao-plugin/issues/63#issuecomment-1199348789))，感谢Enka提供的面板查询服务
 >
 > 如果可以的话，也请在Patreon上支持Enka，或提供闲置的原神账户，具体可在[Enka官网](http://enka.network/) Discord联系
->
-> [issue#63](https://github.com/yoimiya-kokomi/miao-plugin/issues/63#issuecomment-1199734496)
 
-> 可尝试使用`MiniGG-Api`面板服务 [@MiniGrayGay](https://github.com/MiniGrayGay)<br>
+> [issue#63](https://github.com/yoimiya-kokomi/miao-plugin/issues/63#issuecomment-1199734496)  
+> 可尝试使用`MiniGG-Api`面板服务 [@MiniGrayGay](https://github.com/MiniGrayGay)  
 > 发送 `#喵喵设置面板服务332` 修改国服&B服的面板查询由 `MiniGG-Api` 处理
 
 #### #雷神伤害
@@ -102,8 +101,8 @@ git -C plugins/miao-plugin remote set-url origin https://ghfast.top/https://gith
 
 * [Miao-Yunzai](https://github.com/yoimiya-kokomi/Miao-Yunzai) : 喵版Yunzai [Gitee](https://gitee.com/yoimiya-kokomi/Miao-Yunzai)
   / [Github](https://github.com/yoimiya-kokomi/Miao-Yunzai)
-* [Yunzai-V3](https://github.com/yoimiya-kokomi/Yunzai-Bot) ：Yunzai V3 - 喵喵维护版（使用 icqq）
-* [Yunzai-V3](https://gitee.com/Le-niao/Yunzai-Bot) ：Yunzai V3 - 乐神原版（使用 oicq）
+* [Yunzai-V3](https://github.com/yoimiya-kokomi/Yunzai-Bot) : Yunzai V3 - 喵喵维护版（使用 icqq）
+* [Yunzai-V3](https://gitee.com/Le-niao/Yunzai-Bot) : Yunzai V3 - 乐神原版（使用 oicq）
 * [miao-plugin](https://github.com/yoimiya-kokomi/miao-plugin) : 喵喵插件 [Gitee](https://gitee.com/yoimiya-kokomi/miao-plugin)
   / [Github](https://github.com/yoimiya-kokomi/miao-plugin)
 
