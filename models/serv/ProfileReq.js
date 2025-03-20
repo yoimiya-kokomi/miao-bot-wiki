@@ -129,6 +129,7 @@ export default class ProfileReq extends Base {
       }
     } catch (e) {
       logger.error('面板请求错误', e)
+      if(serv._cfg.id === 'mysPanel') this.e.reply('面板请求错误，请稍后重试...')
       self._isReq = false
       data = {}
     }
