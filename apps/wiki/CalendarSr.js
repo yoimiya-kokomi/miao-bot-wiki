@@ -186,6 +186,10 @@ let CalSr = {
       type = 'character'
       extra.sort = 1
       banner = gachaImgs.shift()
+    } else if (/版本活动跃迁/.test(title)) { //权宜之计，当前版本把多个池子塞在同一个公告里发布，姑且这么用着罢（）
+      type = 'character'
+      extra.sort = 1
+      banner = gachaImgs.shift()
     } else if (/无名勋礼/.test(title)) {
       type = 'pass'
     }
