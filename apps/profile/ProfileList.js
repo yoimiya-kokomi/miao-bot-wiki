@@ -79,8 +79,8 @@ const ProfileList = {
     if (e.runtime && e.runtime?.user) {
       let uids = []
       let user = e.runtime.user
-      if (typeof user.getCkUidList === 'function') {
-        uids = user.getCkUidList(e.game).map(i => i.uid) || []
+      if (typeof user.getUidList === 'function') {
+        uids = user.getUidList(e.game).map(i => i.uid) || []
       } else {
         uids = user.ckUids || []
       }
