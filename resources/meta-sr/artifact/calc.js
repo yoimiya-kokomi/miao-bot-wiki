@@ -356,5 +356,24 @@ export default {
         cpct: ({ attr }) => attr.speed < 95 ? 32 : 20
       }
     }]
+  },
+  谧宁拾骨地: {
+    2: [attr('hpPct', 12), {
+      title: '生命值大于等于5000时暴击伤害提升28%',
+      check: ({ calc, attr }) => calc(attr.hp) >= 5000,
+      data: {
+        cdmg: 28
+      }
+    }]
+  },
+  渊思寂虑的巨树: {
+    2: [attr('speedPct', 6), {
+      title: '速度大于等于[_speed]时，治疗量提高[heal]%',
+      check: ({attr }) => attr.speed >= 135,
+      data: {
+        _speed: ({ attr }) => attr.speed >= 180 ? 135 : 180,
+        heal: ({ attr }) => attr.speed >= 180 ? 12 : 20
+      }
+    }]
   }
 }
